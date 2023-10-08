@@ -19,6 +19,6 @@ info installed ~/.local/bin/chezmoi
 ## Init Chezmoi
 
 ```bash
-chezmoi init --apply https://github.com/rurumimic/.dotfiles.git
+chezmoi init --apply --refresh-externals rurumimic
 ```
 

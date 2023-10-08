@@ -8,3 +8,9 @@ Clone this repository into the **HOME** directory:
 git clone https://github.com/rurumimic/.dotfiles.git
 ```
 
+---
+
+## Refs
+
+- [dotfiles.github.io](https://dotfiles.github.io/)
+

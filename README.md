@@ -4,14 +4,12 @@
 sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply -R rurumimic
 ```
 
-## Documentation
+## Contents
 
-- [chezmoi.md](docs/chezmoi.md)
-
-
-## My Repository
-
-- [rurumimic/.vim](https://github.com/rurumimic/.vim)
+- docs
+  - [chezmoi.md](docs/chezmoi.md)
+- repos
+  - [rurumimic/.vim](https://github.com/rurumimic/.vim)
 
 ## Refs
 

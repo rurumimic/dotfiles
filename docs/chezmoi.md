@@ -16,9 +16,15 @@ info found version 2.40.0 for latest/linux/amd64
 info installed ~/.local/bin/chezmoi
 ```
 
-## Init Chezmoi
+### Init Chezmoi
 
 ```bash
 chezmoi init --apply --refresh-externals rurumimic
+```
+
+## Configurations
+
+```bash
+-rw------- ~/.config/chezmoi/chezmoi.toml
 ```
 

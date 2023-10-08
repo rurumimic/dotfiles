@@ -1,0 +1,6 @@
+[".vim"]
+type = "git-repo"
+url = "https://github.com/rurumimic/.vim.git"
+ref = "master"
+refreshPeriod = "24h"
+

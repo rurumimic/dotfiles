@@ -7,12 +7,12 @@ unsetopt extendedglob
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
+zstyle :compinstall filename '{{ joinPath .chezmoi.homeDir ".zshrc" }}'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-{{- template "sh/export.sh" . -}}
-{{- template "sh/alias.sh" . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "files/sh/export.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree  "files/sh/alias.sh") . -}}
 

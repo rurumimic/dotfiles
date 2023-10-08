@@ -1,12 +1,19 @@
 [user]
 	name = {{ .git_name | quote}}
 	email = {{ .git_email | quote }}
+
 [credential "https://github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+
 [core]
 	editor = vi
+	excludesfile = ~/.gitignore
+[init]
+	defaultBranch = master
+[alias]
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
 

@@ -1,7 +1,7 @@
 # dotfiles
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply -R rurumimic
+sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply -R rurumimic
 ```
 
 ## Contents

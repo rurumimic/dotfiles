@@ -1,0 +1,44 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+echo "[Dotfiles] Development Tools"
+
+build_tools="
+    build-essential
+    cmake
+    ninja-build
+    m4
+    autoconf
+    automake
+    autotools-dev
+    libtool
+    pkg-config
+"
+
+source_tools="
+    git
+    global
+    universal-ctags
+    bear
+"
+
+download_tools="
+    curl
+    wget
+"
+
+miscellaneous="
+    unzip
+"
+
+all_packages="
+    $build_tools
+    $source_tools
+    $download_tools
+    $miscellaneous
+"
+
+sudo apt install $all_packages
+
+{{ end -}}
+

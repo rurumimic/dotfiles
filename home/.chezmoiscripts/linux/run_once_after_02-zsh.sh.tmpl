@@ -1,0 +1,10 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+echo "[Dotfiles] ZSH"
+
+sudo apt install zsh
+chsh -s $(which zsh)
+
+{{ end -}}
+

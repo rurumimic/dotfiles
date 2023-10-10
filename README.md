@@ -7,7 +7,8 @@ sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply -R rurumimic
 ## Contents
 
 - docs
-  - [chezmoi.md](docs/chezmoi.md)
+  - [chezmoi](docs/chezmoi.md): dotfiles manager
+  - [clang/llvm](docs/clang.md) 
 - repos
   - [rurumimic/.vim](https://github.com/rurumimic/.vim)
 

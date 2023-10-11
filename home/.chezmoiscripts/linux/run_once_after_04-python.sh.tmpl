@@ -1,0 +1,40 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+echo "[Dotfiles] Python"
+echo "Install Python Build Tools"
+
+build_tools="
+    libssl-dev
+    zlib1g-dev
+    libbz2-dev
+    libreadline-dev
+    libsqlite3-dev
+    curl
+    libncursesw5-dev
+    xz-utils
+    tk-dev
+    libxml2-dev
+    libxmlsec1-dev
+    libffi-dev
+    liblzma-dev
+"
+
+sudo apt install $build_tools
+
+if [ ! -d {{ joinPath .chezmoi.homeDir ".pyenv" | quote }} ]; then
+    echo "Install Pyenv"
+    curl https://pyenv.run | bash
+else 
+    echo "Already Pyenv is installed"
+fi
+
+if [ ! -d {{ joinPath .chezmoi.homeDir ".autoenv" | quote }} ]; then
+    echo "Install autoenv"
+    git clone https://github.com/hyperupcall/autoenv {{ joinPath .chezmoi.homeDir ".autoenv" }}
+else
+    echo "Already Autoenv is installed"
+fi
+
+{{ end -}}
+

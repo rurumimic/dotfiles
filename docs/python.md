@@ -35,6 +35,12 @@ liblzma-dev
 
 ### Latest Version
 
+```bash
+pyenv latest --known '3.11'
+
+3.11.6
+```
+
 1. List all available versions
 1. Delete all horizontal whitespace
 1. List `3.y.z` versions

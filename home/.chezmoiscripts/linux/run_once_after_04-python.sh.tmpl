@@ -38,13 +38,19 @@ else
     echo "Already Autoenv is installed"
 fi
 
-latest_version=$(pyenv install --list | tr --delete '[:blank:]' | grep --extended-regexp '^{{ $version }}.[0-9]+' | sort --version-sort | tail --lines 1)
+latest_version=$(pyenv latest -k {{ $version | quote }})
+if [ $? -ne 0 ]; then
+  exit $?
+fi
 
 echo "Install Python $latest_version"
-pyenv install -v $latest_version
+pyenv install -v --skip-existing $latest_version
 
 echo "Set Python $latest_version as default"
-pyenv global $latest_version
+global_version=$(pyenv global)
+if [ $global_version != $latest_version ]; then
+  pyenv global $latest_version
+fi
 pip install --upgrade pip setuptools wheel
 
 echo "Create a Python virtualenv for Neovim"

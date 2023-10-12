@@ -8,11 +8,18 @@ sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply -R rurumimic
 
 - docs
   - [chezmoi](docs/chezmoi.md): dotfiles manager
-  - [tools.md](docs/tools.md): development tools
-  - [zsh.md](docs/zsh.md)
+  - [tools](docs/tools.md): development tools
+  - [zsh](docs/zsh.md)
   - [clang/llvm](docs/clang.md) 
+  - [python](docs/python.md): with version manager 
+  - node: with version manager
+  - java: with version manager, project manager
+  - go
+  - rust
+  - packages
 - repos
   - [rurumimic/.vim](https://github.com/rurumimic/.vim)
+  - nvim
 
 ## Refs
 

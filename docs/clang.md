@@ -58,3 +58,10 @@ update-alternatives: setting up automatic selection of clang
 update-alternatives: using /usr/bin/clang-17 to provide /usr/bin/clang (clang) in auto mode
 ```
 
+## Setup env
+
+- `home/dot_zshrc.tmpl`
+- `files/sh/export.sh` 
+  - `CC`: `clang`
+  - `CXX`: `clang++`
+

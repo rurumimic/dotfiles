@@ -1,3 +1,5 @@
+### Python ###
+
 # pyenv
 if [ -d "$HOME/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"

@@ -9,10 +9,3 @@ export EDITOR='vi'
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-if command -v clang > /dev/null; then
-  export CC=clang
-fi
-if command -v clang++ > /dev/null; then
-  export CXX=clang++
-fi
-

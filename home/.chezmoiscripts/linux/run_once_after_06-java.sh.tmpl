@@ -1,7 +1,9 @@
-{{- $versions  := list "17" "11" "8" -}}
+{{- $versions := list "17" "11" "8" -}}
 {{- $default_version := index $versions 0 -}}
+{{- $maven_version := "3.9.5" -}}
+{{- $gradle_versions := list "8.3.0" "8.3"  -}}
 {{- if eq .osid "linux-ubuntu" -}}
-#!/usr/bin/env sh
+#!/bin/sh
 
 echo "[Dotfiles] Java"
 echo "Install Java {{ $versions | join ", " }}"
@@ -9,8 +11,7 @@ echo "Install Java {{ $versions | join ", " }}"
 {{- range $version := $versions -}}
   {{- $pkgs = append $pkgs (printf "openjdk-%s-jdk-headless" $version) -}}
 {{- end }}
-sudo apt update && \
-sudo apt install {{ join " " $pkgs }}
+sudo apt update && sudo apt install {{ join " " $pkgs }}
 
 echo "Install jenv"
 if [ ! -d {{ joinPath .chezmoi.homeDir ".jenv" }} ]; then
@@ -30,8 +31,22 @@ jenv global {{ $default_version }}
 jenv global 1.{{ $default_version }}
 {{- end }}
 
+
 echo "Install Maven"
+if [ ! -d "/opt/maven/bin" ]; then
+    sudo mkdir -p /opt/maven
+    curl -sSL -o /tmp/maven.tar.gz "https://dlcdn.apache.org/maven/maven-3/{{ $maven_version }}/binaries/apache-maven-{{ $maven_version }}-bin.tar.gz"
+    sudo tar -C /opt/maven -xzf /tmp/maven.tar.gz
+    rm /tmp/maven.tar.gz
+fi
+
 echo "Install Gradle"
+if [ ! -d "/opt/gradle/bin" ]; then
+    sudo mkdir -p /opt/gradle
+    curl -sSL -o /tmp/gradle.zip "https://github.com/gradle/gradle/releases/download/v{{ index $gradle_versions 0 }}/gradle-{{ index $gradle_versions 1 }}-bin.zip"
+    sudo unzip /tmp/gradle.tar.gz -d /opt/gradle
+    rm /tmp/gradle.zip
+fi
 
 {{ end -}}
 

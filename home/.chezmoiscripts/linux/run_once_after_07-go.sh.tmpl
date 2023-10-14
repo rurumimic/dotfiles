@@ -1,9 +1,31 @@
-{{- $version  := "1.21" -}}
 {{- if eq .osid "linux-ubuntu" -}}
 #!/bin/sh
 
 echo "[Dotfiles] Go"
-echo "Install Go {{ $version }}"
+
+if [ -f /usr/local/go/bin/go ]; then
+  installed_version=$(/usr/local/go/bin/go version | { read _ _ v _; echo ${v#go};})
+else
+  installed_version='0.0.0'
+fi
+
+latest_version=$(curl -sSL 'https://golang.org/VERSION?m=text' | head -n 1 | tr -d 'go\r\n')
+
+if dpkg --compare-versions $installed_version "lt" $latest_version; then
+    echo "Install Go $latest_version"
+    
+    sudo rm -rf /usr/local/go 
+
+    archive=$(curl -sSL 'https://go.dev/dl/?mode=json' | grep -o 'go.*.linux-{{- .chezmoi.arch -}}.tar.gz' | sort -V | tail -n 1 | tr -d '\r\n')
+    
+    curl -sSL -o /tmp/$archive "https://dl.google.com/go/$archive"
+
+    sudo tar -C /usr/local -xzf /tmp/$archive
+
+    rm /tmp/$archive
+else
+    echo "Go $installed_version is the latest version"
+fi
 
 {{ end -}}
 

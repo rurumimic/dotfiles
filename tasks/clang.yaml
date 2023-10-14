@@ -1,7 +1,0 @@
-- name: Hello, World 
-  shell: |
-    echo "Hello, World"
-- name: echo User 
-  shell: |
-    echo "User: {{ username }}" 
-

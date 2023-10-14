@@ -15,7 +15,13 @@ compinit
 
 {{- includeTemplate (joinPath .chezmoi.workingTree "files/sh/export.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree  "files/sh/alias.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree  "files/sh/clang.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "files/sh/python.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/node.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/java.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree     "files/sh/go.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/rust.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree    "files/sh/bat.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/fzf.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/nvim.sh") . -}}
 

@@ -17,6 +17,7 @@ sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply -R rurumimic
   - go
   - rust
   - packages
+  - nvim
 - repos
   - [rurumimic/.vim](https://github.com/rurumimic/.vim)
   - nvim

@@ -4,7 +4,7 @@
 
 echo "[Dotfiles] Node"
 
-echo "Install NVM"
+echo "Install & Update NVM"
 if [ ! -d {{ joinPath .chezmoi.homeDir ".nvm" }} ]; then
     git clone https://github.com/nvm-sh/nvm.git {{ joinPath .chezmoi.homeDir ".nvm" }}
 fi

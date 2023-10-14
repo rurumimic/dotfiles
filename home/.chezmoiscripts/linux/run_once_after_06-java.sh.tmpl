@@ -1,13 +1,35 @@
-{{- $version  := "17" -}}
+{{- $versions  := list "17" "11" "8" -}}
+{{- $default_version := index $versions 0 -}}
 {{- if eq .osid "linux-ubuntu" -}}
-#!/bin/sh
+#!/usr/bin/env sh
 
 echo "[Dotfiles] Java"
-echo "Install Java {{ $version }}"
+echo "Install Java {{ $versions | join ", " }}"
+{{ $pkgs := list -}}
+{{- range $version := $versions -}}
+  {{- $pkgs = append $pkgs (printf "openjdk-%s-jdk-headless" $version) -}}
+{{- end }}
+sudo apt update && \
+sudo apt install {{ join " " $pkgs }}
+
 echo "Install jenv"
-echo "Set JAVA_HOME"
+if [ ! -d {{ joinPath .chezmoi.homeDir ".jenv" }} ]; then
+    git clone https://github.com/jenv/jenv.git {{ joinPath .chezmoi.homeDir ".jenv" }}
+fi
+
+echo "Init jenv"
+/usr/bin/bash -c 'export PATH="$HOME/.jenv/bin:$PATH" && eval "$(jenv init -)" && jenv enable-plugin export'
+
 echo "Add Java versions"
-echo "Set Java {{ $version }} as default"
+find /usr/lib/jvm -maxdepth 1 -type d -regex ".*/java-[0-9]+-openjdk-.*" -exec jenv add {} \;
+
+echo "Set Java {{ $default_version }} as default"
+{{ if gt (int $default_version) 8 -}}
+jenv global {{ $default_version }}
+{{- else -}}
+jenv global 1.{{ $default_version }}
+{{- end }}
+
 echo "Install Maven"
 echo "Install Gradle"
 

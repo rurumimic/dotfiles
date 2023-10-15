@@ -13,15 +13,15 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-{{- includeTemplate (joinPath .chezmoi.workingTree "files/sh/export.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree  "files/sh/alias.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree  "files/sh/clang.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "files/sh/python.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/node.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/java.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree     "files/sh/go.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/rust.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree    "files/sh/bat.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/fzf.zsh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree   "files/sh/nvim.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d" "export.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "alias.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "clang.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d" "python.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "node.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "java.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "go.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "rust.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "bat.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "fzf.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "nvim.sh") . -}}
 

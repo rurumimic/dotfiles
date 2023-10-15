@@ -16,9 +16,10 @@ packages="
 
 sudo apt update && sudo apt install $packages
 
-
 echo "Setup bat"
-ln -s /usr/bin/batcat {{ joinPath .chezmoi.homeDir ".local/bin/bat" }}
+if [ ! -e {{ joinPath .chezmoi.homeDir ".local/bin/bat" }} ]; then
+    ln -s /usr/bin/batcat {{ joinPath .chezmoi.homeDir ".local/bin/bat" }}
+fi
 
 # Add bat themes
 mkdir -p {{ joinPath .chezmoi.homeDir ".config/bat/themes" }}
@@ -33,7 +34,9 @@ rm -rf /tmp/catppuccin_bat
 /usr/bin/batcat cache --build
 
 echo "Setup fd"
-ln -s /usr/bin/fdfind {{ joinPath .chezmoi.homeDir ".local/bin/fd" }}
+if [ ! -e {{ joinPath .chezmoi.homeDir ".local/bin/fd" }} ]; then
+    ln -s /usr/bin/fdfind {{ joinPath .chezmoi.homeDir ".local/bin/fd" }}
+fi
 
 {{ end -}}
 

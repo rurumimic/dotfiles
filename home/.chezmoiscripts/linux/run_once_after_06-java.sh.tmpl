@@ -9,7 +9,7 @@ echo "[Dotfiles] Java"
 echo "Install Java {{ $versions | join ", " }}"
 {{ $pkgs := list -}}
 {{- range $version := $versions -}}
-  {{- $pkgs = append $pkgs (printf "openjdk-%s-jdk-headless" $version) -}}
+    {{- $pkgs = append $pkgs (printf "openjdk-%s-jdk-headless" $version) -}}
 {{- end }}
 sudo apt update && sudo apt install {{ join " " $pkgs }}
 
@@ -31,13 +31,14 @@ jenv global {{ $default_version }}
 jenv global 1.{{ $default_version }}
 {{- end }}
 
-
 echo "Install Maven"
 if [ ! -d "/opt/maven/bin" ]; then
     sudo mkdir -p /opt/maven
     curl -sSL -o /tmp/maven.tar.gz "https://dlcdn.apache.org/maven/maven-3/{{ $maven_version }}/binaries/apache-maven-{{ $maven_version }}-bin.tar.gz"
     sudo tar -C /opt/maven -xzf /tmp/maven.tar.gz
     rm /tmp/maven.tar.gz
+
+    /usr/bin/bash -c 'export PATH="$HOME/.jenv/bin:$PATH" && eval "$(jenv init -)" && jenv enable-plugin maven'
 fi
 
 echo "Install Gradle"
@@ -46,6 +47,8 @@ if [ ! -d "/opt/gradle/bin" ]; then
     curl -sSL -o /tmp/gradle.zip "https://github.com/gradle/gradle/releases/download/v{{ index $gradle_versions 0 }}/gradle-{{ index $gradle_versions 1 }}-bin.zip"
     sudo unzip /tmp/gradle.tar.gz -d /opt/gradle
     rm /tmp/gradle.zip
+
+    /usr/bin/bash -c 'export PATH="$HOME/.jenv/bin:$PATH" && eval "$(jenv init -)" && jenv enable-plugin gradle'
 fi
 
 {{ end -}}

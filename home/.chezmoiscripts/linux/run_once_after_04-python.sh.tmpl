@@ -40,7 +40,7 @@ fi
 
 latest_version=$(pyenv latest -k {{ $version | quote }})
 if [ $? -ne 0 ]; then
-  exit $?
+    exit $?
 fi
 
 echo "Install Python $latest_version"
@@ -49,7 +49,7 @@ pyenv install -v --skip-existing $latest_version
 echo "Set Python $latest_version as default"
 global_version=$(pyenv global)
 if [ $global_version != $latest_version ]; then
-  pyenv global $latest_version
+    pyenv global $latest_version
 fi
 pip install --upgrade pip setuptools wheel
 

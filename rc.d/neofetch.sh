@@ -4,7 +4,7 @@
     # neofetch --kitty $picture
 # fi
 
-if [ -f "$HOME/neotfetch/batman.ascii" ]; then
+if [ -f "$HOME/.config/neofetch/batman.ascii" ]; then
     neofetch --ascii ~/.config/neofetch/batman.ascii
 else
     neofetch

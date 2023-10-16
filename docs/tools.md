@@ -1,5 +1,13 @@
 # Development Tools
 
+## Source
+
+- home
+  - [dot_gitignore](../home/dot_gitignore)
+  - [dot_gitconfig.tmpl](../home/dot_gitconfig.tmpl)
+  - .chezmoiscripts/linux
+    - [run_once_after_01-tools.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_01-tools.sh.tmpl)
+
 ## Build Tools
 
 - [build-essential](https://packages.ubuntu.com/search?keywords=build-essential): dpkg-dev, g++, gcc, libc6-dev/libc-dev, make

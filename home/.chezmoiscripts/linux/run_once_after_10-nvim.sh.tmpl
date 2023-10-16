@@ -20,13 +20,13 @@ else
 {{ else }}
     echo "Build nvim"
 
-    sudo mkdir -p /opt/src 
+    sudo mkdir -p /opt/src
 
     sudo git clone https://github.com/neovim/neovim.git $nvim_src
 
     cd $nvim_src && \
     sudo make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${nvim_dir}" && \
-    sudo make install 
+    sudo make install
 {{ end }}
 fi
 

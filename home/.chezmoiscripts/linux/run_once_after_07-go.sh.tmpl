@@ -14,7 +14,7 @@ latest_version=$(curl -sSL 'https://golang.org/VERSION?m=text' | head -n 1 | tr 
 if dpkg --compare-versions $installed_version "lt" $latest_version; then
     echo "Install Go $latest_version"
 
-    sudo rm -rf /usr/local/go 
+    sudo rm -rf /usr/local/go
 
     archive=$(curl -sSL 'https://go.dev/dl/?mode=json' | grep -o 'go.*.linux-{{- .chezmoi.arch -}}.tar.gz' | sort -V | tail -n 1 | tr -d '\r\n')
 

@@ -10,7 +10,7 @@
 Install Chezmoi in `~/.local/bin`:
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io/lb)"
+sh -c "$(curl -fsSL get.chezmoi.io/lb)"
 
 info found version 2.40.0 for latest/linux/amd64
 info installed ~/.local/bin/chezmoi
@@ -22,7 +22,16 @@ info installed ~/.local/bin/chezmoi
 chezmoi init --apply --refresh-externals rurumimic
 ```
 
-## Configurations
+## Source
+
+- [.chezmoiroot](../.chezmoiroot)
+
+### Root Directory
+
+- home
+  - [.chezmoi.toml.tmpl](../home/.chezmoi.toml.tmpl)
+
+### Configurations
 
 ```bash
 -rw------- ~/.config/chezmoi/chezmoi.toml

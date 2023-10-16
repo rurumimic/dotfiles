@@ -7,7 +7,7 @@ echo "[Dotfiles] Clang/LLVM"
 echo "Install Clang/LLVM {{ $version }}"
 echo "Read: https://apt.llvm.org/"
 
-sudo /usr/bin/bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" -- {{ $version }} all
+sudo /usr/bin/bash -c "$(curl -fsSL https://apt.llvm.org/llvm.sh)" -- {{ $version }} all
 
 sudo update-alternatives \
 --install /usr/bin/llvm-config                 llvm-config                 /usr/bin/llvm-config-{{ $version }} {{ $priority }} \
@@ -127,3 +127,4 @@ sudo update-alternatives \
 --slave   /usr/bin/hwasan_symbolize            hwasan_symbolize            /usr/bin/hwasan_symbolize-{{ $version }}
 
 {{ end -}}
+

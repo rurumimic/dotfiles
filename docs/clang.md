@@ -2,6 +2,15 @@
 
 C language family frontend for llvm.
 
+## Source
+
+- rc.d
+  - [clang.sh](../rc.d/clang.sh)
+    - `CC`: `clang`
+    - `CXX`: `clang++`
+- home/.chezmoiscripts/linux
+  - [run_once_after_03-clang.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_03-clang.sh.tmpl)
+
 ## Install Clang/LLVM
 
 ### Ubuntu
@@ -9,7 +18,7 @@ C language family frontend for llvm.
 - [apt.llvm.org](https://apt.llvm.org/)
 
 ```bash
-sudo /usr/bin/bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" -- {{ $version }} all
+sudo /usr/bin/bash -c "$(curl -fsSL https://apt.llvm.org/llvm.sh)" -- {{ $version }} all
 ```
 
 #### Set symbolic links
@@ -57,11 +66,4 @@ output:
 update-alternatives: setting up automatic selection of clang
 update-alternatives: using /usr/bin/clang-17 to provide /usr/bin/clang (clang) in auto mode
 ```
-
-## Setup env
-
-- `home/dot_zshrc.tmpl`
-- `files/sh/export.sh` 
-  - `CC`: `clang`
-  - `CXX`: `clang++`
 

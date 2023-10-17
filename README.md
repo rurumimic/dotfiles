@@ -9,7 +9,7 @@ sh -c "$(curl -fsSL get.chezmoi.io/lb)" -- init --apply -R rurumimic
 - docs
   - [chezmoi](docs/chezmoi.md): dotfiles manager
   - [tools](docs/tools.md): development tools
-  - [zsh](docs/zsh.md)
+  - [zsh](docs/zsh.md): prompt
   - [clang/llvm](docs/clang.md)
   - [python](docs/python.md): with version manager
   - [node](docs/node.md): with version manager

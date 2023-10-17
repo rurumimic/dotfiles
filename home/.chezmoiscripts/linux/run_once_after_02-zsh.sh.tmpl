@@ -3,8 +3,14 @@
 
 echo "[Dotfiles] ZSH"
 
+echo "Install ZSH"
+
 sudo apt install zsh
 chsh -s $(which zsh)
+
+echo "Install typewritten for ZSH"
+mkdir -p {{ joinPath .chezmoi.homeDir ".zsh/typewritten" }}
+git clone https://github.com/reobin/typewritten.git {{ joinPath .chezmoi.homeDir ".zsh/typewritten" }}
 
 {{ end -}}
 

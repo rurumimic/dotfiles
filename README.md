@@ -26,6 +26,7 @@ sh -c "$(curl -fsSL get.chezmoi.io/lb)" -- init --apply -R rurumimic
 
 ### C
 
+- [vim](docs/vim.md)
 - [nvim](docs/nvim.md)
 
 ### Other

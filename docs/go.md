@@ -5,7 +5,7 @@
 - rc.d
   - [go.sh](../rc.d/go.sh)
 - home/.chezmoiscripts/linux
-  - [run_once_after_07-go.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_07-go.sh.tmpl)
+  - [run_once_after_B3-go.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_B3-go.sh.tmpl)
 
 ## Env
 

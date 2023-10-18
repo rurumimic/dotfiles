@@ -9,7 +9,7 @@ C language family frontend for llvm.
     - `CC`: `clang`
     - `CXX`: `clang++`
 - home/.chezmoiscripts/linux
-  - [run_once_after_03-clang.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_03-clang.sh.tmpl)
+  - [run_once_after_A3-clang.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_A3-clang.sh.tmpl)
 
 ## Install Clang/LLVM
 

@@ -4,12 +4,12 @@
 echo "[Dotfiles] Rust"
 
 echo "Install Rust"
-if [ ! -e "$HOME/.cargo/bin/rustc" ]; then
+if [ ! -e {{ joinPath .chezmoi.homeDir ".cargo/bin/rustc" }} ]; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y --profile complete
 fi
 
 echo "Update Rust"
-. "$HOME/.cargo/env"
+. {{ joinPath .chezmoi.homeDir ".cargo/env" }}
 rustup update stable
 
 {{ end -}}

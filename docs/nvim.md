@@ -8,5 +8,5 @@
 - rc.d
   - [nvim.sh](../rc.d/nvim.sh)
 - home/.chezmoiscripts/linux
-  - [run_once_after_10-nvim.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_10-nvim.sh.tmpl)
+  - [run_once_after_C2-nvim.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_C2-nvim.sh.tmpl)
 

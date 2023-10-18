@@ -9,7 +9,7 @@
 - rc.d
   - [python.sh](../rc.d/python.sh)
 - home/.chezmoiscripts/linux
-  - [run_once_after_04-python.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_04-python.sh.tmpl)
+  - [run_once_after_A4-python.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_A4-python.sh.tmpl)
 
 ## Build Tools
 

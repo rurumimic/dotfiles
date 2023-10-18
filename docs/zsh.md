@@ -12,7 +12,7 @@
   - [dot_zshenv](../home/dot_zshenv)
   - [dot_zprofile](../home/dot_zprofile)
   - .chezmoiscripts/linux
-    - [run_once_after_02-zsh.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_02-zsh.sh.tmpl)
+    - [run_once_after_A2-zsh.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_A2-zsh.sh.tmpl)
 
 ## Init
 

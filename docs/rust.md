@@ -5,7 +5,7 @@
 - rc.d
   - [rust.sh](../rc.d/rust.sh)
 - home/.chezmoiscripts/linux
-  - [run_once_after_08-rust.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_08-rust.sh.tmpl)
+  - [run_once_after_B4-rust.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_B4-rust.sh.tmpl)
 
 ## Update
 

@@ -7,7 +7,7 @@
   - fzf: [fzf.bash](../rc.d/fzf.bash), [fzf.zsh](../rc.d/fzf.zsh)
   - neofetch: [neofetch.sh](../rc.d/neofetch.sh)
 - home/.chezmoiscripts/linux
-  - [run_once_after_09-packages.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_09-packages.sh.tmpl)
+  - [run_once_after_A5-packages.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_A5-packages.sh.tmpl)
 
 ## Bat
 

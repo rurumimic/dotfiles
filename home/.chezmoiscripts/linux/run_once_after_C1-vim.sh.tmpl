@@ -14,12 +14,11 @@ else
     echo "Build vim"
 
     sudo mkdir -p /opt/src
-
     sudo git clone https://github.com/vim/vim.git $vim_src
 
     cd $vim_src && \
-    sudo CC=clang ./configure --prefix=$vim_dir --enable-cscope --enable-terminal --enable-multibyte --enable-gnome-check && \
     sudo make distclean && \
+    sudo ./configure --prefix=$vim_dir --enable-cscope --enable-terminal --enable-multibyte --enable-gui=auto CC=clang && \
     sudo make && \
     sudo make install
 fi

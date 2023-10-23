@@ -27,8 +27,10 @@ sudo apt install $build_tools
 if [ ! -d {{ joinPath .chezmoi.homeDir ".pyenv" | quote }} ]; then
     echo "Install Pyenv"
     curl https://pyenv.run | bash
-else 
+else
     echo "Already Pyenv is installed"
+    echo "Update Pyenv"
+    pyenv update
 fi
 
 if [ ! -d {{ joinPath .chezmoi.homeDir ".autoenv" | quote }} ]; then
@@ -36,6 +38,8 @@ if [ ! -d {{ joinPath .chezmoi.homeDir ".autoenv" | quote }} ]; then
     git clone https://github.com/hyperupcall/autoenv {{ joinPath .chezmoi.homeDir ".autoenv" }}
 else
     echo "Already Autoenv is installed"
+    echo "Update Pyenv"
+    git -C {{ joinPath .chezmoi.homeDir ".autoenv" | quote }} pull
 fi
 
 latest_version=$(pyenv latest -k {{ $version | quote }})

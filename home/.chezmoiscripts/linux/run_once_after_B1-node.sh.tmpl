@@ -4,16 +4,15 @@
 
 echo "[Dotfiles] Node"
 
-echo "Install & Update NVM"
+echo "Install NVM"
 if [ ! -d {{ joinPath .chezmoi.homeDir ".nvm" }} ]; then
     git clone https://github.com/nvm-sh/nvm.git {{ joinPath .chezmoi.homeDir ".nvm" }}
 fi
 
+echo "Update NVM"
 cd {{ joinPath .chezmoi.homeDir ".nvm" }}
 git fetch --tags origin
 git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-cd {{ joinPath .chezmoi.homeDir }}
-
 . {{ joinPath .chezmoi.homeDir ".nvm/nvm.sh" }}
 
 echo "Install Node {{ $version }} as default"

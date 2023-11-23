@@ -2,6 +2,10 @@
 
 C language family frontend for llvm.
 
+## Version
+
+LLVM 16 for Nvidia CUDA Toolkit.
+
 ## Source
 
 - rc.d
@@ -35,7 +39,23 @@ Options:
   --debug                 debug ouput, more output.
 ```
 
-##### llvm-config
+#### Update Alternatives
+
+```bash
+chezmoi execute-template < ~/.local/share/chezmoi/home/.chezmoiscripts/linux/run_once_after_A3-clang.sh.tmpl
+```
+
+```bash
+sudo update-alternatives --config llvm-config
+sudo update-alternatives --config clang
+```
+
+```bash
+update-alternatives --display llvm-config
+update-alternatives --display clang
+```
+
+#### llvm-config
 
 ```bash
 sudo update-alternatives \
@@ -51,7 +71,7 @@ update-alternatives: setting up automatic selection of llvm-config
 update-alternatives: using /usr/bin/llvm-config-17 to provide /usr/bin/llvm-config (llvm-config) in auto mode
 ```
 
-##### clang
+#### clang
 
 ```bash
 sudo update-alternatives \
@@ -64,6 +84,6 @@ output:
 
 ```bash
 update-alternatives: setting up automatic selection of clang
-update-alternatives: using /usr/bin/clang-17 to provide /usr/bin/clang (clang) in auto mode
+update-alternatives: using /usr/bin/clang-16 to provide /usr/bin/clang (clang) in auto mode
 ```
 

@@ -16,10 +16,10 @@ config.color_scheme = 'Later This Evening'
 config.font_size = 12.0
 config.font = wezterm.font_with_fallback {
   'BlexMono Nerd Font',
-  'D2Coding Ligature Nerd Font',
   'Hack Nerd Font',
   'Monaco',
   'Consolas',
+  'D2Coding',
 }
 
 config.initial_cols = 120

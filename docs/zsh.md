@@ -7,6 +7,7 @@
 
 - rc.d
   - [prompt.zsh](../rc.d/prompt.zsh)
+  - [plugins.zsh](../rc.d/plugins.zsh)
 - home
   - [dot_zshrc.tmpl](../home/dot_zshrc.tmpl)
   - [dot_zshenv](../home/dot_zshenv)
@@ -29,6 +30,12 @@ zsh-newuser-install -f
 ~/.zshenv
 ~/.zprofile
 ```
+
+## Plugins
+
+- zsh-users
+  - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
+  - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ## Oh My Zsh
 

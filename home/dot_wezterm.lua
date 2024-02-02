@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 -- This table will hold the configuration.
 local config = {}
@@ -11,16 +11,18 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-config.color_scheme = 'Later This Evening'
+config.color_scheme = "Later This Evening"
+
+config.default_cursor_style = "BlinkingBar"
 
 config.font_size = 12.0
-config.font = wezterm.font_with_fallback {
-  'BlexMono Nerd Font',
-  'Hack Nerd Font',
-  'Monaco',
-  'Consolas',
-  'D2Coding',
-}
+config.font = wezterm.font_with_fallback({
+  "BlexMono Nerd Font",
+  "Hack Nerd Font",
+  "Monaco",
+  "Consolas",
+  "D2Coding",
+})
 
 config.initial_cols = 120
 config.initial_rows = 45
@@ -29,4 +31,3 @@ config.scrollback_lines = 10000
 
 -- and finally, return the configuration to wezterm
 return config
-

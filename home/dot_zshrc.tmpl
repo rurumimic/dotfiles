@@ -14,6 +14,7 @@ compinit
 # End of lines added by compinstall
 
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "prompt.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d" "plugins.zsh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "export.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "alias.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "clang.sh") . -}}

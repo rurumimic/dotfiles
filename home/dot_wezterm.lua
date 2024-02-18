@@ -17,10 +17,10 @@ config.default_cursor_style = "BlinkingBar"
 
 config.font_size = 12.0
 config.font = wezterm.font_with_fallback({
-  "BlexMono Nerd Font",
   "Hack Nerd Font",
-  "Monaco",
-  "Consolas",
+  -- "BlexMono Nerd Font",
+  -- "Monaco",
+  -- "Consolas",
   "D2Coding",
 })
 

@@ -14,3 +14,18 @@
 export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 ```
 
+## NPM
+
+### Upgrade
+
+```bash
+nvm install-latest-npm
+```
+
+## Corepack
+
+```bash
+corepack enable
+corepack enable pnpm
+```
+

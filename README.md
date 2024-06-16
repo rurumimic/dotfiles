@@ -22,7 +22,7 @@ sh -c "$(curl -fsSL get.chezmoi.io/lb)" -- init --apply -R rurumimic
 - [go](docs/go.md)
 - [rust](docs/rust.md)
 - [ruby](docs/ruby.md): with version manager
-- haskell
+- [haskell](docs/haskell.md)
 
 ### C
 

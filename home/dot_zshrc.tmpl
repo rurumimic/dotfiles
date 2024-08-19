@@ -11,6 +11,14 @@ zstyle :compinstall filename '{{ joinPath .chezmoi.homeDir ".zshrc" }}'
 
 autoload -Uz compinit
 compinit
+
+autoload -U edit-command-line
+zle -N edit-command-line
+# emacs style
+# bindkey '^xe' edit-command-line
+# bindkey '^x^e' edit-command-line
+# vim style
+bindkey -M vicmd v edit-command-line
 # End of lines added by compinstall
 
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "prompt.zsh") . -}}

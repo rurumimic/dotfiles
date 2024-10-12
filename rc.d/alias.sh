@@ -19,3 +19,7 @@ alias l='ls -CF'
 
 alias cz='chezmoi'
 
+if [ -x /usr/bin/minikube ]; then
+    alias k='minikube kubectl --'
+fi
+

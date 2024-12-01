@@ -13,7 +13,10 @@ end
 -- This is where you actually apply your config choices
 config.color_scheme = "Later This Evening"
 
-config.default_cursor_style = "BlinkingBar"
+config.cursor_thickness = "0.1cell"
+config.cursor_blink_rate = 500
+config.default_cursor_style = "SteadyBlock"
+-- config.default_cursor_style = "BlinkingBar"
 
 config.font_size = 12.0
 config.font = wezterm.font_with_fallback({

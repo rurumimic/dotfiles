@@ -1,8 +1,18 @@
 # dotfiles
 
 ```bash
+cd ~
+
+# without apply
+sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init rurumimic
+
+# with apply
+sh -c "$(wget -qO- get.chezmoi.io/lb)" -- init --apply -R rurumimic
 sh -c "$(curl -fsSL get.chezmoi.io/lb)" -- init --apply -R rurumimic
 ```
+
+options:
+- `-R`, `--refresh-externals`: refresh external cache (deafult auto) 
 
 ## Docs
 

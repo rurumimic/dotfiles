@@ -1,7 +1,17 @@
 # dotfiles
 
+just setup:
+
 ```bash
-sh -c "$(curl -fsSL get.chezmoi.io/lb)" -- init --apply -R rurumimic
+sh -c "$(wget -qO- get.chezmoi.io)" -- -b $HOME/.local/bin init -R rurumimic
+sh -c "$(curl -fsSL get.chezmoi.io)" -- -b $HOME/.local/bin init -R rurumimic
+```
+
+setup and run:
+
+```bash
+sh -c "$(wget -qO- get.chezmoi.io)" -- -b $HOME/.local/bin init --apply -R rurumimic
+sh -c "$(curl -fsSL get.chezmoi.io)" -- -b $HOME/.local/bin init --apply -R rurumimic
 ```
 
 ## Docs

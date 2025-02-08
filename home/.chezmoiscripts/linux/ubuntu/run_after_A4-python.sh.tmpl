@@ -1,0 +1,48 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
+echo "[Dotfiles] Python"
+
+echo "Install Python"
+
+ask_confirm
+answer=$?
+case $answer in
+  0)
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    uv python install 3.12 --reinstall
+
+    if [ ! -d {{ joinPath .chezmoi.homeDir ".autoenv" | quote }} ]; then
+        echo "Install autoenv"
+        git clone https://github.com/hyperupcall/autoenv {{ joinPath .chezmoi.homeDir ".autoenv" }}
+    else
+        echo "Already Autoenv is installed"
+        echo "Update Autoenv"
+        git -C {{ joinPath .chezmoi.homeDir ".autoenv" | quote }} pull
+    fi
+
+    echo "Create a Python virtualenv for Neovim"
+    uv venv --seed --allow-existing {{ joinPath .chezmoi.workingTree "venv" "vim" }}
+    . {{ joinPath .chezmoi.workingTree "venv" "vim" "bin" "activate" }}
+    uv pip install pynvim
+    uv pip list
+    ;;
+  1)
+    echo "Skip install Python"
+    ;;
+  *)
+    echo "Quit"
+    exit 1
+    ;;
+esac
+
+
+
+
+
+
+{{ end -}}
+

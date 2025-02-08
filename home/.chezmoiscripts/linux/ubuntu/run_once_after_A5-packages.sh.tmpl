@@ -1,0 +1,60 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
+echo "[Dotfiles] Packages"
+
+packages="
+    neofetch
+    highlight
+    tree
+    ripgrep
+    bat
+    fzf
+    fd-find
+"
+
+echo "Install Packages:"
+echo "sudo nala install -y $packages"
+
+ask_confirm
+answer=$?
+case $answer in
+  0)
+    sudo nala update
+    sudo nala install -y $packages
+
+    echo "Setup bat"
+    if [ ! -e {{ joinPath .chezmoi.homeDir ".local/bin/bat" }} ]; then
+        ln -s /usr/bin/batcat {{ joinPath .chezmoi.homeDir ".local/bin/bat" }}
+    fi
+    
+    # Add bat themes
+    mkdir -p {{ joinPath .chezmoi.homeDir ".config/bat/themes" }}
+    if [ ! -d "/tmp/catppuccin_bat" ]; then
+      git clone https://github.com/catppuccin/bat.git /tmp/catppuccin_bat
+    fi
+    find '/tmp/catppuccin_bat' -name '*.tmTheme' \
+      -exec cp "{}" "{{ joinPath .chezmoi.homeDir ".config/bat/themes" }}" \;
+    rm -rf /tmp/catppuccin_bat
+    
+    # Rebuild bat cache
+    /usr/bin/batcat cache --build
+    
+    echo "Setup fd"
+    if [ ! -e {{ joinPath .chezmoi.homeDir ".local/bin/fd" }} ]; then
+        ln -s /usr/bin/fdfind {{ joinPath .chezmoi.homeDir ".local/bin/fd" }}
+    fi
+    ;;
+  1)
+    echo "Skip install packages"
+    ;;
+  *)
+    echo "Quit"
+    exit 1
+    ;;
+esac
+
+{{ end -}}
+

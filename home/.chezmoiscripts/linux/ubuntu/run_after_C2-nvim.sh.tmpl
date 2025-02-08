@@ -1,0 +1,78 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
+echo "[Dotfiles] Neovim"
+
+nvim_dir=/opt/nvim
+nvim_src=/opt/src/neovim
+
+# echo "Skip Uninstall Neovim"
+# 
+# ask_confirm
+# answer=$?
+# case $answer in
+#   0)
+#     echo "Skip Uninstall Neovim"
+#     ;;
+#   1)
+#     sudo rm -rf $nvim_dir 
+#     sudo rm -rf $nvim_src 
+#     ;;
+#   *)
+#     echo "Quit"
+#     exit 1
+#     ;;
+# esac
+
+echo "Install Neovim"
+
+ask_confirm
+answer=$?
+case $answer in
+  0)
+
+    sudo mkdir -p $nvim_dir
+    
+    if [ -f "${nvim_dir}/bin/nvim" ]; then
+        echo "Neovim is already installed in /opt/nvim"
+    else
+    {{ if eq .chezmoi.arch "amd64" }}
+        echo "Install Neovim"
+    
+        curl -sSL -o /tmp/nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
+        sudo tar -xzf /tmp/nvim-linux-x86_64.tar.gz -C $nvim_dir --strip-components=1
+        rm /tmp/nvim-linux-x86_64.tar.gz
+    {{ else if eq .chezmoi.arch "arm64" }}
+        echo "Install Neovim"
+    
+        curl -sSL -o /tmp/nvim-linux-arm64.tar.gz https://github.com/neovim/neovim/releases/download/stable/nvim-linux-arm64.tar.gz
+        sudo tar -xzf /tmp/nvim-linux-arm64.tar.gz -C $nvim_dir --strip-components=1
+        rm /tmp/nvim-linux-arm64.tar.gz
+       
+    {{ else }}
+        echo "Build nvim"
+    
+        sudo mkdir -p /opt/src
+    
+        sudo git clone https://github.com/neovim/neovim.git $nvim_src
+    
+        cd $nvim_src && \
+        sudo make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=${nvim_dir}" && \
+        sudo make install
+    {{ end }}
+    fi
+
+    ;;
+  1)
+    echo "Skip install Neovim"
+    ;;
+  *)
+    echo "Quit"
+    exit 1
+    ;;
+esac
+
+{{ end -}}
+

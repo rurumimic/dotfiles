@@ -1,0 +1,9 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
+echo "[Dotfiles] Haskll"
+
+{{ end -}}
+

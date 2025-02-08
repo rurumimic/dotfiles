@@ -9,5 +9,7 @@ export TYPEWRITTEN_RELATIVE_PATH="home"
 
 ### Rust ###
 
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo" ]; then
+  . "$HOME/.cargo/env"
+fi
 

@@ -1,0 +1,40 @@
+{{- $version  := "22" -}}
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
+echo "[Dotfiles] Node"
+
+echo "Install Node " {{ $version }}
+
+ask_confirm
+answer=$?
+case $answer in
+  0)
+    echo "Install NVM"
+    if [ ! -d {{ joinPath .chezmoi.homeDir ".nvm" }} ]; then
+        git clone https://github.com/nvm-sh/nvm.git {{ joinPath .chezmoi.homeDir ".nvm" }}
+    fi
+    
+    echo "Update NVM"
+    cd {{ joinPath .chezmoi.homeDir ".nvm" }}
+    git fetch --tags origin
+    git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+    . {{ joinPath .chezmoi.homeDir ".nvm/nvm.sh" }}
+    
+    echo "Install Node {{ $version }} as default"
+    nvm install --default {{ $version }}
+
+    ;;
+  1)
+    echo "Skip install Node"
+    ;;
+  *)
+    echo "Quit"
+    exit 1
+    ;;
+esac
+
+{{ end -}}
+

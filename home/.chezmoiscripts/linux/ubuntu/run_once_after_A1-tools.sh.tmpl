@@ -1,6 +1,8 @@
 {{- if eq .osid "linux-ubuntu" -}}
 #!/bin/sh
 
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
 echo "[Dotfiles] Development Tools"
 
 build_tools="
@@ -39,7 +41,23 @@ all_packages="
     $miscellaneous
 "
 
-sudo apt install $all_packages
+echo "Install Packages:"
+echo "sudo nala install -y $all_packages"
+
+ask_confirm
+answer=$?
+case $answer in
+  0)
+    sudo nala install -y $all_packages
+    ;;
+  1)
+    echo "Skip install packages"
+    ;;
+  *)
+    echo "Quit"
+    exit 1
+    ;;
+esac
 
 {{ end -}}
 

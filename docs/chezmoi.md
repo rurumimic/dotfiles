@@ -10,7 +10,6 @@
 Install Chezmoi in `~/.local/bin`:
 
 ```bash
-sh -c "$(wget -qO- get.chezmoi.io/lb)"
 sh -c "$(curl -fsSL get.chezmoi.io/lb)"
 
 info found version 2.40.0 for latest/linux/amd64
@@ -38,9 +37,3 @@ chezmoi init --apply --refresh-externals rurumimic
 -rw------- ~/.config/chezmoi/chezmoi.toml
 ```
 
-```toml
-[data]
-osid = "linux-ubuntu"
-name = ""
-email = ""
-```

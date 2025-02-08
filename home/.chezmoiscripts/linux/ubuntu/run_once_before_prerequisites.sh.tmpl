@@ -1,0 +1,15 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+echo "[Dotfiles] Required Packages"
+
+echo "Install APT package manager: nala"
+echo "sudo apt install -y nala"
+
+sudo apt install -y nala
+
+echo "Install Required Packages"
+echo "sudo nala install -y git curl wget"
+
+{{ end -}}
+

@@ -1,5 +1,7 @@
 ### Neofetch ###
 
+if command -v neofetch > /dev/null; then
+
 # if [ "$TERM" = "xterm-kitty" && -s "$PICTURE" ]; then
     # neofetch --kitty $picture
 # fi
@@ -10,3 +12,4 @@ else
     neofetch
 fi
 
+fi

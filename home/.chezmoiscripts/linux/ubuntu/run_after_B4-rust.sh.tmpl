@@ -1,0 +1,35 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
+echo "[Dotfiles] Rust"
+
+echo "Install Rust"
+
+ask_confirm
+answer=$?
+case $answer in
+  0)
+
+    echo "Install Rust"
+    if [ ! -e {{ joinPath .chezmoi.homeDir ".cargo/bin/rustc" }} ]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile complete
+    fi
+    
+    echo "Update Rust"
+    . {{ joinPath .chezmoi.homeDir ".cargo/env" }}
+    rustup update stable
+
+    ;;
+  1)
+    echo "Skip install Rust"
+    ;;
+  *)
+    echo "Quit"
+    exit 1
+    ;;
+esac
+
+{{ end -}}
+

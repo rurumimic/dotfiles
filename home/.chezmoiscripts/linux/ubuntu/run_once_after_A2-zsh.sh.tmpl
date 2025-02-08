@@ -1,0 +1,29 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/sh
+
+. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
+
+echo "[Dotfiles] ZSH"
+
+echo "Install ZSH"
+
+sudo nala install zsh
+chsh -s $(which zsh)
+
+echo "Install typewritten for ZSH"
+if [ ! -d "{{ joinPath .chezmoi.homeDir ".zsh/typewritten" }}" ]; then
+  git clone https://github.com/reobin/typewritten.git {{ joinPath .chezmoi.homeDir ".zsh/typewritten" }}
+fi
+
+echo "Install ZSH plugins"
+
+echo "Install zsh-history-substring-search"
+if [ ! -d "{{ joinPath .chezmoi.homeDir ".zsh/zsh-history-substring-search" }}" ]; then
+  git clone https://github.com/zsh-users/zsh-history-substring-search.git {{ joinPath .chezmoi.homeDir ".zsh/zsh-history-substring-search" }}
+fi
+if [ ! -d "{{ joinPath .chezmoi.homeDir ".zsh/zsh-syntax-highlighting" }}" ]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git {{ joinPath .chezmoi.homeDir ".zsh/zsh-syntax-highlighting" }}
+fi
+
+{{ end -}}
+

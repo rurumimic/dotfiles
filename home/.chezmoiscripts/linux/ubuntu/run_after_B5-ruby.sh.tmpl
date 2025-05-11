@@ -1,6 +1,6 @@
 {{- $version  := "3.2.2" -}}
 {{- if eq .osid "linux-ubuntu" -}}
-#!/bin/sh
+#!/bin/zsh
 
 . {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
 
@@ -11,7 +11,7 @@ ask_confirm
 answer=$?
 case $answer in
   0)
-    
+
     echo "Install Ruby Build Tools"
 
     installed="autoconf patch build-essential rustc"
@@ -29,16 +29,16 @@ case $answer in
         uuid-dev
     "
     sudo nala install $build_tools
-    
+
     echo "Install Ruby Version Manager"
     if [ ! -d {{ joinPath .chezmoi.homeDir ".rbenv" }} ]; then
         git clone https://github.com/rbenv/rbenv.git {{ joinPath .chezmoi.homeDir ".rbenv" }}
         mkdir -p {{ joinPath .chezmoi.homeDir ".rbenv/plugins" }}
         git clone https://github.com/rbenv/ruby-build.git {{ joinPath .chezmoi.homeDir ".rbenv/plugins/ruby-build" }}
     fi
-    
+
     eval "$({{ joinPath .chezmoi.homeDir ".rbenv/bin/rbenv" }} init - $SHELL)"
-    
+
     echo "Install Ruby"
     rbenv install -v -s {{ $version }}
     rbenv global {{ $version }}

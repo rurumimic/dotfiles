@@ -55,3 +55,15 @@ docs: [external](docs/external.md)
 - [dotfiles.github.io](https://dotfiles.github.io/)
 - [chezmoi.io](https://www.chezmoi.io/)
 
+---
+
+## Customize
+
+- terminal
+  - [wezterm](https://wezterm.org/)
+- fonts
+  - [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
+  - [d2coding](https://github.com/naver/d2codingfont)
+- github
+  - [cli](https://cli.github.com/)
+

@@ -1,5 +1,5 @@
 {{- if eq .osid "linux-ubuntu" -}}
-#!/bin/sh
+#!/bin/zsh
 
 . {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
 
@@ -29,7 +29,7 @@ case $answer in
     if [ ! -e {{ joinPath .chezmoi.homeDir ".local/bin/bat" }} ]; then
         ln -s /usr/bin/batcat {{ joinPath .chezmoi.homeDir ".local/bin/bat" }}
     fi
-    
+
     # Add bat themes
     mkdir -p {{ joinPath .chezmoi.homeDir ".config/bat/themes" }}
     if [ ! -d "/tmp/catppuccin_bat" ]; then
@@ -38,10 +38,10 @@ case $answer in
     find '/tmp/catppuccin_bat' -name '*.tmTheme' \
       -exec cp "{}" "{{ joinPath .chezmoi.homeDir ".config/bat/themes" }}" \;
     rm -rf /tmp/catppuccin_bat
-    
+
     # Rebuild bat cache
     /usr/bin/batcat cache --build
-    
+
     echo "Setup fd"
     if [ ! -e {{ joinPath .chezmoi.homeDir ".local/bin/fd" }} ]; then
         ln -s /usr/bin/fdfind {{ joinPath .chezmoi.homeDir ".local/bin/fd" }}

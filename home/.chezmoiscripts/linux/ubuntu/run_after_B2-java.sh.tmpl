@@ -3,7 +3,7 @@
 {{- $maven_version := "3.9.5" -}}
 {{- $gradle_versions := list "8.3.0" "8.3"  -}}
 {{- if eq .osid "linux-ubuntu" -}}
-#!/bin/sh
+#!/bin/zsh
 
 . {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
 
@@ -20,42 +20,42 @@ case $answer in
         {{- $pkgs = append $pkgs (printf "openjdk-%s-jdk-headless" $version) -}}
     {{- end }}
     sudo nala update && sudo nala install {{ join " " $pkgs }}
-    
+
     echo "Install jenv"
     if [ ! -d {{ joinPath .chezmoi.homeDir ".jenv" }} ]; then
         git clone https://github.com/jenv/jenv.git {{ joinPath .chezmoi.homeDir ".jenv" }}
     fi
-    
+
     echo "Init jenv"
     /usr/bin/bash -c 'export PATH="$HOME/.jenv/bin:$PATH" && eval "$(jenv init -)" && jenv enable-plugin export'
-    
+
     echo "Add Java versions"
     find /usr/lib/jvm -maxdepth 1 -type d -regex ".*/java-[0-9]+-openjdk-.*" -exec jenv add {} \;
-    
+
     echo "Set Java {{ $default_version }} as default"
     {{ if gt (int $default_version) 8 -}}
     jenv global {{ $default_version }}
     {{- else -}}
     jenv global 1.{{ $default_version }}
     {{- end }}
-    
+
     echo "Install Maven"
     if [ ! -d "/opt/maven/bin" ]; then
         sudo mkdir -p /opt/maven
         curl -sSL -o /tmp/maven.tar.gz "https://dlcdn.apache.org/maven/maven-3/{{ $maven_version }}/binaries/apache-maven-{{ $maven_version }}-bin.tar.gz"
         sudo tar -C /opt/maven -xzf /tmp/maven.tar.gz
         rm /tmp/maven.tar.gz
-    
+
         /usr/bin/bash -c 'export PATH="$HOME/.jenv/bin:$PATH" && eval "$(jenv init -)" && jenv enable-plugin maven'
     fi
-    
+
     echo "Install Gradle"
     if [ ! -d "/opt/gradle/bin" ]; then
         sudo mkdir -p /opt/gradle
         curl -sSL -o /tmp/gradle.zip "https://github.com/gradle/gradle/releases/download/v{{ index $gradle_versions 0 }}/gradle-{{ index $gradle_versions 1 }}-bin.zip"
         sudo unzip /tmp/gradle.tar.gz -d /opt/gradle
         rm /tmp/gradle.zip
-    
+
         /usr/bin/bash -c 'export PATH="$HOME/.jenv/bin:$PATH" && eval "$(jenv init -)" && jenv enable-plugin gradle'
     fi
 

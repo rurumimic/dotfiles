@@ -1,5 +1,5 @@
 {{- if eq .osid "linux-ubuntu" -}}
-#!/bin/sh
+#!/bin/zsh
 
 . {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
 

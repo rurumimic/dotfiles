@@ -1,5 +1,5 @@
 {{- if eq .osid "linux-ubuntu" -}}
-#!/bin/sh
+#!/bin/zsh
 
 . {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
 
@@ -16,7 +16,7 @@ case $answer in
     if [ ! -e {{ joinPath .chezmoi.homeDir ".cargo/bin/rustc" }} ]; then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile complete
     fi
-    
+
     echo "Update Rust"
     . {{ joinPath .chezmoi.homeDir ".cargo/env" }}
     rustup update stable

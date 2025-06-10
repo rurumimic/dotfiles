@@ -1,4 +1,4 @@
 ### Bat ###
 
-export BAT_THEME="Catppuccin-mocha"
+export BAT_THEME="Catppuccin Mocha"
 

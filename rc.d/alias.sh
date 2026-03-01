@@ -19,5 +19,5 @@ alias l='ls -CF'
 
 alias cz='chezmoi'
 
-alias e='emacsclient -nw'
+alias e='emacs -nw'
 # alias e='emacsclient -t -a ""'

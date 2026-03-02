@@ -63,6 +63,7 @@ docs: [external](docs/external.md)
 - terminal
   - [wezterm](https://wezterm.org/)
 - fonts
+  - [~/.config/fontconfig/fonts.conf](home/private_dot_config/fontconfig/fonts.conf)
   - [nerd fonts](https://github.com/ryanoasis/nerd-fonts)
   - [d2coding](https://github.com/naver/d2codingfont)
 - github

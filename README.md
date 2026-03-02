@@ -41,7 +41,8 @@ sh -c "$(curl -fsSL get.chezmoi.io)" -- -b $HOME/.local/bin init --apply -R ruru
 
 ### Other
 
-- [vagrant](docs/vagrant.sh)
+- [vagrant](docs/vagrant.md)
+- [lazygit](docs/lazygit.md)
 
 ## External Repos
 

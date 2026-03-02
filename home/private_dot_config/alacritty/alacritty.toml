@@ -1,3 +1,6 @@
+[general]
+import = ["local.toml"]
+
 [window.dimensions]
 columns = 120
 lines = 45

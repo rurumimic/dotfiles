@@ -62,3 +62,21 @@ sudo update-desktop-database
 
 - [~/.config/alacritty/alacritty.toml](../home/private_dot_config/alacritty/alacritty.toml)
 
+---
+
+## Theme
+
+- github: [alacritty-theme](https://github.com/alacritty/alacritty-theme)
+
+```bash
+mkdir -p ~/.config/alacritty/themes
+git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+```
+
+```toml
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/{theme}.toml"
+]
+```
+

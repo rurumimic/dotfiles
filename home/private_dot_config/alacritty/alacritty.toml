@@ -1,0 +1,24 @@
+[window.dimensions]
+columns = 120
+lines = 45
+
+[window.padding]
+x = 8
+y = 8
+
+[scrolling]
+history = 10000
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[cursor]
+blink_interval = 750
+blink_timeout = 0
+thickness = 0.15
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+

@@ -21,28 +21,29 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 # End of lines added by compinstall
 
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "chezmoi.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "prompt.zsh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d" "plugins.zsh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "export.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "alias.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "clang.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "python.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "node.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "java.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"       "go.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "rust.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "ruby.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "haskell.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "bat.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "fzf.zsh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "nvim.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "vim.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "lazygit.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "vagrant.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d" "neofetch.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "nvidia.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "k8s.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "bun.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "tbb.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "chezmoi.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "prompt.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "plugins.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d" "alacritty.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "export.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "alias.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "clang.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "python.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"       "node.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"       "java.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"         "go.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"       "rust.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"       "ruby.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "haskell.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "bat.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"       "fzf.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"       "nvim.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "vim.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "lazygit.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "vagrant.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "neofetch.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "nvidia.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "k8s.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "bun.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "tbb.sh") . -}}
 

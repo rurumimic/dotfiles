@@ -3,9 +3,9 @@
 ask_confirm() {
     local answer
 
-    printf "Continue? [Y/n/q] "
+    printf "Continue? [y/N/q] "
     read answer
-    answer=${answer:-y}
+    answer=${answer:-n}
 
     case "$answer" in
         [Yy]*)

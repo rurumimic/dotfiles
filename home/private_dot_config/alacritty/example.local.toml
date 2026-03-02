@@ -1,3 +1,4 @@
 [general]
+# https://github.com/alacritty/alacritty-theme
 import = ["themes/themes/{theme}.toml"]
 

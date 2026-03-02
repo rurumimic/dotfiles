@@ -22,7 +22,3 @@ alias cz='chezmoi'
 alias e='emacs -nw'
 # alias e='emacsclient -t -a ""'
 
-if command -v lazygit > /dev/null; then
-  alias lg='lazygit'
-fi
-

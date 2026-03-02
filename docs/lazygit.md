@@ -9,6 +9,11 @@
 go install github.com/jesseduffield/lazygit@latest
 ```
 
+## Source
+
+- rc.d
+  - [lazygit.sh](../rc.d/lazygit.sh)
+
 ## Configuration
 
 - home/private_dot_config/lazygit

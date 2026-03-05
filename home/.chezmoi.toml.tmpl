@@ -6,8 +6,46 @@
 {{- $name := promptStringOnce . "name" "(git) user.name" -}}
 {{- $email := promptStringOnce . "email" "(git) user.email" -}}
 
+{{- $installTools := false -}}
+{{- $installPackages := false -}}
+{{- $installClang := false -}}
+{{- $installPython := false -}}
+{{- $installNode := false -}}
+{{- $installJava := false -}}
+{{- $installGo := false -}}
+{{- $installRust := false -}}
+{{- $installRuby := false -}}
+{{- $installVim := false -}}
+{{- $installNvim := false -}}
+
+{{- if eq $osID "linux-ubuntu" -}}
+{{-   $installTools = promptBoolOnce . "install.tools" "Install development tools (build-essential, cmake, git, etc.)" -}}
+{{-   $installPackages = promptBoolOnce . "install.packages" "Install packages (neofetch, ripgrep, bat, fzf, etc.)" -}}
+{{-   $installClang = promptBoolOnce . "install.clang" "Install Clang/LLVM" -}}
+{{-   $installPython = promptBoolOnce . "install.python" "Install Python (via uv)" -}}
+{{-   $installNode = promptBoolOnce . "install.node" "Install Node.js (via nvm)" -}}
+{{-   $installJava = promptBoolOnce . "install.java" "Install Java (via jenv)" -}}
+{{-   $installGo = promptBoolOnce . "install.go" "Install Go" -}}
+{{-   $installRust = promptBoolOnce . "install.rust" "Install Rust (via rustup)" -}}
+{{-   $installRuby = promptBoolOnce . "install.ruby" "Install Ruby (via rbenv)" -}}
+{{-   $installVim = promptBoolOnce . "install.vim" "Install Vim (build from source)" -}}
+{{-   $installNvim = promptBoolOnce . "install.nvim" "Install Neovim" -}}
+{{- end -}}
+
 [data]
 osid = {{ $osID | quote }}
 name = {{ $name | quote }}
 email = {{ $email | quote }}
 
+[data.install]
+tools = {{ $installTools }}
+packages = {{ $installPackages }}
+clang = {{ $installClang }}
+python = {{ $installPython }}
+node = {{ $installNode }}
+java = {{ $installJava }}
+go = {{ $installGo }}
+rust = {{ $installRust }}
+ruby = {{ $installRuby }}
+vim = {{ $installVim }}
+nvim = {{ $installNvim }}

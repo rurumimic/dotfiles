@@ -1,8 +1,6 @@
 {{- if eq .osid "linux-ubuntu" -}}
 #!/bin/zsh
 
-. {{ joinPath .chezmoi.workingTree "rc.d" "chezmoi.sh" }}
-
 echo "[Dotfiles] Vim"
 
 vim_dir=/opt/vim
@@ -28,37 +26,29 @@ vim_src=/opt/src/vim
 
 echo "Install Vim"
 
-ask_confirm
-answer=$?
-case $answer in
-  0)
+{{- if dig "install" "vim" false . }}
 
-    sudo mkdir -p $vim_dir
+sudo mkdir -p $vim_dir
 
-    if [ -f "${vim_dir}/bin/vim" ]; then
-        echo "Vim is already installed in /opt/vim"
-    else
-        echo "Build vim"
+if [ -f "${vim_dir}/bin/vim" ]; then
+    echo "Vim is already installed in /opt/vim"
+else
+    echo "Build vim"
 
-        sudo mkdir -p /opt/src
-        sudo git clone https://github.com/vim/vim.git $vim_src
+    sudo mkdir -p /opt/src
+    sudo git clone https://github.com/vim/vim.git $vim_src
 
-        cd $vim_src && \
-        sudo make distclean && \
-        sudo ./configure --prefix=$vim_dir --enable-cscope --enable-terminal --enable-multibyte --enable-gui=auto CC=clang && \
-        sudo make && \
-        sudo make install
-    fi
+    cd $vim_src && \
+    sudo make distclean && \
+    sudo ./configure --prefix=$vim_dir --enable-cscope --enable-terminal --enable-multibyte --enable-gui=auto CC=clang && \
+    sudo make && \
+    sudo make install
+fi
 
-    ;;
-  1)
-    echo "Skip install Vim"
-    ;;
-  *)
-    echo "Quit"
-    exit 1
-    ;;
-esac
+{{- else }}
+echo "Skip install Vim"
+{{- end }}
 
 {{ end -}}
+
 

@@ -1,0 +1,30 @@
+# theme = Horizon
+# theme = IR Black
+# theme = Jackie Brown
+# theme = Jubi
+# theme = Matrix
+# theme = Matte Black
+theme = Xcode Dark hc
+
+font-size = 12
+font-family = Hack Nerd Font
+font-family = D2Coding
+
+window-padding-x = 4
+window-padding-y = 4
+
+# window-decoration = false
+gtk-titlebar = true
+gtk-wide-tabs = false
+
+scrollback-limit = 10000
+
+# bind like wezterm:
+keybind = ctrl+shift+left=goto_split:left
+keybind = ctrl+shift+right=goto_split:right
+keybind = ctrl+shift+down=goto_split:bottom
+keybind = ctrl+shift+up=goto_split:top
+
+keybind = ctrl+shift+alt+%=new_split:right
+keybind = ctrl+shift+alt+"=new_split:down
+

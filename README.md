@@ -64,6 +64,7 @@ docs: [external](docs/external.md)
 
 - terminal
   - [wezterm](https://wezterm.org/)
+  - [ghostty](https://ghostty.org/)
 - fonts
   - [~/.config/fontconfig/fonts.conf](home/private_dot_config/fontconfig/fonts.conf)
   - [nerd fonts](https://github.com/ryanoasis/nerd-fonts)

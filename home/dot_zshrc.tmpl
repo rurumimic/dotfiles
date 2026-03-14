@@ -16,8 +16,10 @@ autoload -U edit-command-line
 zle -N edit-command-line
 # emacs style
 # bindkey '^xe' edit-command-line
-# bindkey '^x^e' edit-command-line
+bindkey '^x^e' edit-command-line
 # vim style
+bindkey -M viins '^x^e' edit-command-line
+bindkey -M vicmd '^x^e' edit-command-line
 bindkey -M vicmd v edit-command-line
 # End of lines added by compinstall
 

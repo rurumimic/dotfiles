@@ -3,4 +3,6 @@ gui:
 git:
   autoFetch: false
   disableForcePushing: true
+  pagers:
+    - externalDiffCommand: difft --color=always
 

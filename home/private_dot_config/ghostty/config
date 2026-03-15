@@ -1,10 +1,15 @@
+# theme = Apple System Colors
+theme = Catppuccin Mocha
 # theme = Horizon
 # theme = IR Black
 # theme = Jackie Brown
 # theme = Jubi
 # theme = Matrix
 # theme = Matte Black
-theme = Xcode Dark hc
+# theme = Kanso Zen
+# theme = Lab Fox
+# theme = Xcode Dark hc
+# config-file = ?auto/theme.ghostty
 
 font-size = 12
 # font-family = BlexMono Nerd Font

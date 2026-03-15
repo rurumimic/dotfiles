@@ -7,7 +7,7 @@
 theme = Xcode Dark hc
 
 font-size = 12
-font-family = BlexMono Nerd Font
+# font-family = BlexMono Nerd Font
 font-family = Hack Nerd Font
 font-family = D2Coding
 

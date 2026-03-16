@@ -15,6 +15,22 @@ LLVM 16 for Nvidia CUDA Toolkit.
 - home/.chezmoiscripts/linux
   - [run_once_after_A3-clang.sh.tmpl](../home/.chezmoiscripts/linux/run_once_after_A3-clang.sh.tmpl)
 
+## libc++
+
+```bash
+CC=clang
+CXX=clang++
+CXXFLAGS="-stdlib=libc++"
+```
+
+macos:
+
+```bash
+export SDKROOT=$(xcrun --show-sdk-path)
+export C_INCLUDE_PATH="${C_INCLUDE_PATH:+${C_INCLUDE_PATH}:}$SDKROOT/usr/include"
+export CPLUS_INCLUDE_PATH="${CPLUS_INCLUDE_PATH:+${CPLUS_INCLUDE_PATH}:}$SDKROOT/usr/include/c++/v1"
+```
+
 ## Install Clang/LLVM
 
 ### Ubuntu
@@ -36,7 +52,7 @@ Options:
   --get-selections        list master alternative names and their status.
   --remove-all <name>     remove <name> group from the alternatives system.
   --verbose               verbose operation, more output.
-  --debug                 debug ouput, more output.
+  --debug                 debug output, more output.
 ```
 
 #### Update Alternatives

@@ -23,7 +23,8 @@ window-padding-y = 4
 gtk-titlebar = true
 gtk-wide-tabs = false
 
-scrollback-limit = 10000000 # 10MB
+# 10MB
+scrollback-limit = 10000000
 
 # bind like wezterm:
 keybind = ctrl+shift+left=goto_split:left

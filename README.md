@@ -45,6 +45,8 @@ sh -c "$(curl -fsSL get.chezmoi.io)" -- -b $HOME/.local/bin init --apply -R ruru
 - [lazygit](docs/lazygit.md)
 - [alacritty](docs/alacritty.md)
 - [zoxide](docs/zoxide.md)
+- [ai.sh](rc.d/ai.sh)
+  - opencode
 
 ## External Repos
 

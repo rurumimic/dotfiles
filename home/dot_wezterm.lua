@@ -12,7 +12,8 @@ end
 
 -- This is where you actually apply your config choices
 -- config.color_scheme = "Later This Evening"
-config.color_scheme = "Srcery (Gogh)"
+config.color_scheme = "Nord (Gogh)"
+-- config.color_scheme = "Srcery (Gogh)"
 
 config.cursor_thickness = "0.1cell"
 config.cursor_blink_rate = 500

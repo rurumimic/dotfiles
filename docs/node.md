@@ -14,12 +14,23 @@
 export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
 ```
 
-## NPM
+## FNM
+
+- [fnm](https://github.com/Schniz/fnm)
+
+```bash
+cargo list
+cargo list-remote
+cargo install version
+cargo default version
+```
+
+## NVM
 
 ### Upgrade
 
 ```bash
-nvm install-latest-npm
+# nvm install-latest-npm
 ```
 
 ## Corepack

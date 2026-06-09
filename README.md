@@ -74,3 +74,13 @@ docs: [external](docs/external.md)
 - github
   - [cli](https://cli.github.com/)
 
+---
+
+## config
+
+```bash
+~/.config/chezmoi
+├── chezmoistate.boltdb
+└── chezmoi.toml
+```
+

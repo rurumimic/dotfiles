@@ -1,5 +1,5 @@
 {{- if eq .osid "linux-ubuntu" -}}
-#!/bin/zsh
+#!/bin/sh
 
 echo "[Dotfiles] Packages"
 
@@ -14,8 +14,6 @@ packages="
     tree-sitter-cli
 "
 
-cargo_packages="difftastic"
-
 echo "Install Packages:"
 echo "sudo nala install -y $packages"
 
@@ -23,10 +21,6 @@ echo "sudo nala install -y $packages"
 
 sudo nala update
 sudo nala install -y $packages
-
-echo "Install Cargo Packages:"
-echo "cargo install --locked $cargo_packages"
-cargo install --locked $cargo_packages
 
 echo "Setup bat"
 if [ ! -e {{ joinPath .chezmoi.homeDir ".local/bin/bat" }} ]; then

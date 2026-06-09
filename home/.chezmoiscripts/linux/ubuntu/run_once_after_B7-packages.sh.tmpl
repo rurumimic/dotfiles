@@ -1,0 +1,19 @@
+{{- if eq .osid "linux-ubuntu" -}}
+#!/bin/zsh
+
+echo "[Dotfiles] Cargo Packages"
+
+cargo_packages="difftastic"
+
+{{- if dig "install" "packages" false . }}
+
+echo "Install Cargo Packages:"
+echo "cargo install --locked $cargo_packages"
+cargo install --locked $cargo_packages
+
+{{- else }}
+echo "Skip install cargo packages"
+{{- end }}
+
+{{ end -}}
+

@@ -1,5 +1,10 @@
 ### Prompt ###
 
+
+if [ -f "/usr/local/bin/starship" ]; then
+  eval "$(starship init zsh)"
+fi
+
 # typewritten
 # export TYPEWRITTEN_SYMBOL="λ"
 # export TYPEWRITTEN_CURSOR="block"

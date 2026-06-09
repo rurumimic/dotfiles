@@ -11,7 +11,22 @@ bindkey -e
 zstyle :compinstall filename '{{ joinPath .chezmoi.homeDir ".zshrc" }}'
 
 autoload -Uz compinit
-compinit
+# Rebuild the completion dump at most once a day; otherwise load it with -C (skips
+# the slow security/up-to-date check). Compile the dump to .zwc bytecode so zsh
+# sources it ~3x faster on every subsequent startup. extendedglob is enabled
+# locally because this config unsets it globally, and (#q...) requires it.
+() {
+  setopt local_options extendedglob
+  local zcd=${ZDOTDIR:-$HOME}/.zcompdump
+  if [[ -n $zcd(#qN.mh+24) ]]; then
+    compinit -d "$zcd"
+  else
+    compinit -C -d "$zcd"
+  fi
+  if [[ -s $zcd && ( ! -s ${zcd}.zwc || $zcd -nt ${zcd}.zwc ) ]]; then
+    zcompile -R -- "${zcd}.zwc" "$zcd"
+  fi
+}
 
 autoload -U edit-command-line
 zle -N edit-command-line

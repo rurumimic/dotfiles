@@ -12,14 +12,18 @@ zstyle :compinstall filename '{{ joinPath .chezmoi.homeDir ".zshrc" }}'
 
 autoload -Uz compinit
 # Rebuild the completion dump at most once a day; otherwise load it with -C (skips
-# the slow security/up-to-date check). Compile the dump to .zwc bytecode so zsh
-# sources it ~3x faster on every subsequent startup. extendedglob is enabled
-# locally because this config unsets it globally, and (#q...) requires it.
+# the slow security/up-to-date check via compaudit). Compile the dump to .zwc
+# bytecode so zsh sources it ~3x faster on every subsequent startup. extendedglob
+# is enabled locally because this config unsets it globally, and (#q...) requires it.
+# NOTE: compinit only rewrites the dump when completion functions change, so its
+# mtime can stay frozen for months -> the mh+24 test stays true -> the slow path
+# runs on *every* shell. touch resets the 24h timer so -C is actually used.
 () {
   setopt local_options extendedglob
   local zcd=${ZDOTDIR:-$HOME}/.zcompdump
   if [[ -n $zcd(#qN.mh+24) ]]; then
     compinit -d "$zcd"
+    touch "$zcd"
   else
     compinit -C -d "$zcd"
   fi
@@ -39,8 +43,6 @@ bindkey -M vicmd '^x^e' edit-command-line
 bindkey -M vicmd v edit-command-line
 # End of lines added by compinstall
 
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "prompt.zsh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "plugins.zsh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d" "alacritty.zsh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "export.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"      "alias.sh") . -}}
@@ -59,10 +61,12 @@ bindkey -M vicmd v edit-command-line
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "lazygit.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "zoxide.zsh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "vagrant.sh") . -}}
-{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "neofetch.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"  "fastfetch.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"     "nvidia.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "k8s.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "bun.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"        "tbb.sh") . -}}
 {{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"         "ai.sh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"    "prompt.zsh") . -}}
+{{- includeTemplate (joinPath .chezmoi.workingTree "rc.d"   "plugins.zsh") . -}}
 
